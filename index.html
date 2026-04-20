@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>景泰蓝 - 国家级非物质文化遗产展示系统</title>
+  <!-- 引入资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 自定义配色 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A2343',
+            gold: '#D4AF37',
+            light: '#F8F5E8',
+            dark: '#1a1a1a'
+          },
+          fontFamily: {
+            song: ['"Noto Serif SC"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .scroll-smooth { scroll-behavior: smooth; }
+      .timeline-line { background: linear-gradient(to bottom, #D4AF37 0%, #0A2343 100%); }
+      .card-hover { transition: all 0.3s; }
+      .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+      /* 新增图片等比例适配样式 */
+      .img-fit { object-fit: cover; object-position: center; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-light font-song text-dark scroll-smooth">
+<!-- ====================== 顶部导航栏 ====================== -->
+<header class="fixed w-full top-0 z-50 bg-primary/95 text-white shadow-md">
+  <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <!-- 品牌 -->
+    <div class="flex items-center gap-2 mb-3 md:mb-0">
+      <i class="fa fa-cube text-gold text-2xl"></i>
+      <h1 class="text-xl md:text-2xl font-bold">景泰蓝非遗展示</h1>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="w-full md:w-auto mb-3 md:mb-0">
+      <input type="text" id="searchInput" placeholder="搜索起源、工艺、作品..." 
+             class="w-full md:w-64 px-4 py-2 rounded-full border-none outline-none text-dark">
+    </div>
+
+    <!-- 导航菜单  -->
+    <nav class="flex gap-3 md:gap-6 text-sm md:text-base flex-wrap justify-center">
+      <a href="#home" class="px-2 py-1 hover:text-gold transition-colors">首页</a>
+      <a href="#origin" class="px-2 py-1 hover:text-gold transition-colors">历史起源</a>
+      <a href="#craft" class="px-2 py-1 hover:text-gold transition-colors">工艺介绍</a>
+      <a href="#show" class="px-2 py-1 hover:text-gold transition-colors">精品展示</a>
+      <a href="#value" class="px-2 py-1 hover:text-gold transition-colors">价值体现</a>
+      <a href="#feedback" class="px-2 py-1 hover:text-gold transition-colors">留言反馈</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ====================== 首页横幅 ====================== -->
+<section id="home" class="h-[600px] md:h-[700px] flex items-center pt-0 pb-0 text-white text-center relative overflow-hidden">
+  <!-- 背景：替换为D:\1\5.jpg -->
+  <div class="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+       style="background-image: url('file:///D:/1/5.jpg');"></div>
+  <!-- 半透明遮罩 -->
+  <div class="absolute inset-0 bg-primary/70 -z-10"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4 text-gold drop-shadow-lg">铜胎掐丝珐琅 · 景泰蓝</h1>
+    <p class="text-lg md:text-xl opacity-95 max-w-3xl mx-auto leading-10">
+      国家级非物质文化遗产 | 六百年宫廷御用 | 东方艺术瑰宝
+    </p>
+  </div>
+</section>
+
+<!-- ====================== 1. 历史起源（时间轴）====================== -->
+<section id="origin" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-12">📜 历史起源与发展</h2>
+    
+    <!-- 时间轴 -->
+    <div class="relative max-w-4xl mx-auto">
+      <div class="absolute left-1/2 top-0 bottom-0 w-1 timeline-line -translate-x-1/2"></div>
+
+      <!-- 元代  -->
+      <div class="relative mb-16 flex items-start">
+        <div class="w-1/2 pr-8 text-right">
+          <h3 class="text-xl font-bold text-primary">元代 · 传入初创</h3>
+          <p class="mt-2 text-gray-700">掐丝珐琅工艺由阿拉伯地区传入中国，开始初步发展，故宫馆藏的元代器物是早期工艺的重要见证。</p>
+        </div>
+        <div class="absolute left-1/2 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-gold"></div>
+        <div class="w-1/2 ml-auto pl-8 mt-0">
+          <img src="file:///D:/1/1.png" alt="元代景泰蓝" class="rounded shadow w-full">
+        </div>
+      </div>
+
+      <!-- 明代 -->
+      <div class="relative mb-16 flex items-start">
+        <div class="w-1/2 pr-8 text-right">
+          <img src="file:///D:/1/2.jpg" alt="明代景泰蓝" class="rounded shadow w-full">
+        </div>
+        <div class="absolute left-1/2 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-gold"></div>
+        <div class="w-1/2 ml-auto pl-8 mt-0">
+          <h3 class="text-xl font-bold text-primary">明代 · 鼎盛时期</h3>
+          <p class="mt-2 text-gray-700">明景泰年间达到巅峰，釉色以蓝色为主，故称“景泰蓝”，工艺与审美均达到极高水准。</p>
+        </div>
+      </div>
+
+      <!-- 清代 -->
+      <div class="relative mb-16 flex items-start">
+        <div class="w-1/2 pr-8 text-right">
+          <h3 class="text-xl font-bold text-primary">清代 · 宫廷御用</h3>
+          <p class="mt-2 text-gray-700">成为皇家专属工艺，制作精美，专供宫廷与祭祀，出现大量大型陈设器与礼器。</p>
+        </div>
+        <div class="absolute left-1/2 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-gold"></div>
+        <div class="w-1/2 ml-auto pl-8 mt-0">
+          <img src="file:///D:/1/3.jpg" alt="清代景泰蓝" class="rounded shadow w-full">
+        </div>
+      </div>
+
+      <!-- 现代-->
+      <div class="relative flex items-start">
+        <div class="w-1/2 pr-8 text-right">
+          <img src="file:///D:/1/4.jpg" alt="现代景泰蓝" class="rounded shadow w-full">
+        </div>
+        <div class="absolute left-1/2 top-0 -translate-x-1/2 w-5 h-5 rounded-full bg-gold"></div>
+        <div class="w-1/2 ml-auto pl-8 mt-0">
+          <h3 class="text-xl font-bold text-primary">现代 · 非遗传承</h3>
+          <p class="mt-2 text-gray-700">列入国家级非物质文化遗产，成为国礼与文化名片，多次作为外交礼品赠送国际友人。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 2. 工艺介绍 ====================== -->
+<section id="craft" class="py-16 bg-primary/5">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-12">⚙️ 景泰蓝制作工艺</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- 制图与制胎 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">1. 制图与制胎</h3>
+        <p class="mb-4 text-gray-700">绘制纹样，选用优质紫铜，锤打成器型，为作品打下基础。</p>
+        <img src="file:///D:/1/6.jpg" alt="制图与制胎" class="rounded w-full">
+      </div>
+
+      <!-- 掐丝/粘丝 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">2. 掐丝/粘丝</h3>
+        <p class="mb-4 text-gray-700">将铜丝掐成纹样，用白芨粘在胎体上，勾勒出图案轮廓。</p>
+        <img src="file:///D:/1/7.jpg" alt="掐丝" class="rounded w-full">
+      </div>
+
+      <!-- 点蓝 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">3. 点蓝</h3>
+        <p class="mb-4 text-gray-700">将矿物釉料填入丝纹之间，层层上色，色彩层次丰富。</p>
+        <img src="file:///D:/1/8.jpg" alt="点蓝" class="rounded w-full">
+      </div>
+
+      <!-- 烧蓝 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">4. 烧蓝</h3>
+        <p class="mb-4 text-gray-700">放入窑炉高温烧制，使釉料与铜胎融合，反复多次上色烧制。</p>
+        <img src="file:///D:/1/9.jpg" alt="烧蓝" class="rounded w-full">
+      </div>
+
+      <!-- 磨光 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">5. 磨光</h3>
+        <p class="mb-4 text-gray-700">用砂石、木炭打磨，使表面光滑平整，釉色均匀透亮。</p>
+        <img src="file:///D:/1/10.jpg" alt="磨光" class="rounded w-full">
+      </div>
+
+      <!-- 镀金 -->
+      <div class="bg-white p-6 rounded-xl shadow card-hover">
+        <h3 class="text-xl font-bold text-primary mb-2">6. 镀金</h3>
+        <p class="mb-4 text-gray-700">电镀黄金，防锈提亮，彰显华贵，使器物更具皇家气度。</p>
+        <img src="file:///D:/1/11.jpg" alt="镀金" class="rounded w-full">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 3. 精品展示 ====================== -->
+<section id="show" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-12">🏛 经典名作展示</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- 第一件：清· 掐丝珐琅凤穿牡丹纹凤耳三足 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/12.jpg" alt="清· 掐丝珐琅凤穿牡丹纹凤耳三足" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">清· 掐丝珐琅凤穿牡丹纹凤耳三足</h3>
+          <p class="text-gray-600 mt-2">清代宫廷经典器型，凤纹牡丹寓意富贵吉祥。</p>
+        </div>
+      </div>
+
+      <!-- 第二件：清·掐丝珐琅太平有象 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/13.jpg" alt="清·掐丝珐琅太平有象" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">清·掐丝珐琅太平有象</h3>
+          <p class="text-gray-600 mt-2">清代宫廷陈设器，寓意“太平盛世，万象更新”。</p>
+        </div>
+      </div>
+
+      <!-- 第三件：清· 掐丝珐琅开光四季花鸟桃耳瓶 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/14.jpg" alt="清· 掐丝珐琅开光四季花鸟桃耳瓶" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">清· 掐丝珐琅开光四季花鸟桃耳瓶</h3>
+          <p class="text-gray-600 mt-2">开光纹饰工艺精湛，四季花鸟栩栩如生。</p>
+        </div>
+      </div>
+
+      <!-- 第四件：明宣德景泰蓝龙纹大罐：珐琅彩 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/15.jpg" alt="明宣德景泰蓝龙纹大罐：珐琅彩" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">明宣德景泰蓝龙纹大罐：珐琅彩</h3>
+          <p class="text-gray-600 mt-2">宣德年间重器，龙纹矫健，珐琅彩釉色浓郁。</p>
+        </div>
+      </div>
+
+      <!-- 第五件：元景泰款掐丝珐琅缠枝莲纹龙耳瓶 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/18.jpg" alt="元景泰款掐丝珐琅缠枝莲纹龙耳瓶" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">元景泰款掐丝珐琅缠枝莲纹龙耳瓶</h3>
+          <p class="text-gray-600 mt-2">元代早期珍品，龙耳造型独特，缠枝莲纹经典。</p>
+        </div>
+      </div>
+
+      <!-- 第六件：明景泰款掐丝珐琅缠枝莲纹龙耳熏炉 -->
+      <div class="rounded-xl overflow-hidden shadow-lg card-hover">
+        <img src="file:///D:/1/17.jpg" alt="明景泰款掐丝珐琅缠枝莲纹龙耳熏炉" class="w-full h-60 img-fit">
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-primary">明景泰款掐丝珐琅缠枝莲纹龙耳熏炉</h3>
+          <p class="text-gray-600 mt-2">景泰年间代表作，熏炉形制规整，莲纹繁复精美。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 4. 价值体现 ====================== -->
+<section id="value" class="py-16 bg-primary text-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gold mb-12">景泰蓝价值体现</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">历史价值</h3>
+        <p class="leading-8">见证了元、明、清宫廷工艺的发展，是中国古代对外文化交流（西亚珐琅工艺传入中国）的实物见证。承载着不同朝代的审美、礼制与宫廷生活，是研究中国工艺美术史的重要依据。。</p>
+      </div>
+
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">艺术价值</h3>
+        <p class="leading-8">集冶金、绘画、雕刻、烧制、镀金于一体，造型庄重、色彩富丽，被誉为“一件景泰蓝，十件官窑器”。色彩沉稳典雅，纹饰吉祥大气，体现中式美学与皇家气派，是中国传统工艺的高峰代表。</p>
+      </div>
+
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">工艺价值</h3>
+        <p class="leading-8">全程手工制作，工序复杂：制胎、掐丝、烧焊、点蓝、烧蓝、磨光、镀金等百余道工序。技艺高度依赖匠人经验，不可被机器完全替代，是珍贵的传统手工技艺活态传承。</p>
+      </div>
+
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">文化与精神价值</h3>
+        <p class="leading-8"> 纹样多采用龙、凤、缠枝莲、石榴、牡丹等，蕴含吉祥如意、多子多福、国泰民安等中华文化内涵。体现中国匠人精益求精、一丝不苟的工匠精神，是非遗文化传承的重要载体。</p>
+      </div>
+
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">社会与时代价值</h3>
+        <p class="leading-8"> 现为国家级非物质文化遗产，多次作为国礼赠送外国元首，是中华文化对外交流的名片。在当代实现创新发展，推动传统文化复兴，具有文化自信与文旅产业价值。</p>
+      </div>
+
+      <div class="p-6 border border-gold/30 rounded-xl">
+        <h3 class="text-xl font-bold text-gold mb-3">国际文化传播价值</h3>
+        <p class="leading-8"> 作为中国传统工艺的代表，景泰蓝曾多次作为国礼赠送给外国元首，是中外文化交流的重要媒介。它以独特的东方美学语言，向世界传递中国文化魅力，成为讲好中国故事、提升文化软实力的重要名片。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 5. 留言反馈 ====================== -->
+<section id="feedback" class="py-16 bg-white">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="text-3xl font-bold text-center text-primary mb-12">✍️ 留言反馈</h2>
+    
+    <form class="bg-primary/5 p-8 rounded-xl shadow">
+      <div class="mb-6">
+        <label for="name" class="block text-primary font-semibold mb-2">姓名</label>
+        <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="请输入您的姓名">
+      </div>
+      
+      <div class="mb-6">
+        <label for="email" class="block text-primary font-semibold mb-2">邮箱</label>
+        <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="请输入您的邮箱">
+      </div>
+      
+      <div class="mb-6">
+        <label for="message" class="block text-primary font-semibold mb-2">留言内容</label>
+        <textarea id="message" rows="6" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="请输入您的留言或建议..."></textarea>
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 hover:text-gold transition-colors font-semibold">
+          提交留言
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ====================== 底部 ====================== -->
+<footer class="bg-primary text-white py-6 text-center">
+  <p>© 2026 景泰蓝非遗文化展示系统 | 版权所有</p>
+</footer>
+
+<!-- 搜索功能JS  -->
+<script>
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') {
+      const val = this.value.trim().toLowerCase();
+      if(val.includes('首页')) window.location.hash = '#home';
+      else if(val.includes('起源') || val.includes('历史')) window.location.hash = '#origin';
+      else if(val.includes('工艺')) window.location.hash = '#craft';
+      else if(val.includes('作品') || val.includes('展示')) window.location.hash = '#show';
+      else if(val.includes('价值')) window.location.hash = '#value';
+      else if(val.includes('留言') || val.includes('反馈')) window.location.hash = '#feedback';
+      else alert('未找到相关内容，请尝试：首页、起源、工艺、作品、价值、留言');
+    }
+  });
+</script>
+</body>
+</html>
